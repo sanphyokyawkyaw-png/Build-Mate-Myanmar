@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="my">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#123b78">
+<link rel="manifest" href="./manifest.webmanifest">
+<link rel="apple-touch-icon" href="./icon-192.png">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<title>Build Mate – App Preview</title>
+<style>
+:root{--navy:#123b78;--blue:#1769d2;--sky:#eaf3ff;--gold:#f4a51c;--ink:#17243a;--muted:#66758b;--line:#e3eaf3;--white:#fff}
+*{box-sizing:border-box}body{margin:0;background:#f2f6fb;color:var(--ink);font-family:system-ui,"Noto Sans Myanmar",sans-serif}
+header{background:linear-gradient(120deg,#0d3471,#1978df);color:white;padding:20px 18px 25px;border-radius:0 0 24px 24px}
+.top{display:flex;justify-content:space-between;align-items:center}.brand{font-weight:900;font-size:22px;letter-spacing:.3px}.tag{font-size:12px;opacity:.9}
+.pill{background:#ffffff24;border:1px solid #ffffff55;border-radius:30px;padding:7px 11px;font-size:12px}
+main{max-width:850px;margin:auto;padding:16px 14px 90px}.hero{margin-top:-10px;background:white;border-radius:18px;padding:17px;box-shadow:0 6px 20px #17365d12}
+h1{font-size:22px;margin:2px 0 6px}h2{font-size:18px;margin:0 0 12px}.muted{color:var(--muted);font-size:13px;line-height:1.55}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:10px;margin:14px 0}.tile{background:white;border:1px solid var(--line);border-radius:16px;padding:15px;text-align:left;box-shadow:0 3px 12px #17365d08;cursor:pointer;color:var(--ink);font:inherit}
+.tile b{display:block;margin-top:7px}.ico{font-size:26px}.tile small{color:var(--muted)}
+.card{background:white;border:1px solid var(--line);border-radius:16px;padding:16px;margin:12px 0;box-shadow:0 3px 12px #17365d08}
+.row{display:flex;gap:10px;align-items:center;flex-wrap:wrap}.between{justify-content:space-between}
+button,.btn{border:0;background:var(--blue);color:white;padding:10px 14px;border-radius:11px;font-weight:700;cursor:pointer}
+button.secondary{background:#eaf2ff;color:var(--navy)}button.gold{background:var(--gold);color:#302000}
+input,select{border:1px solid #d5dfeb;border-radius:10px;padding:10px;font:inherit;min-width:0;background:white}
+input{width:100%}.field{flex:1;min-width:130px}label{display:block;font-size:12px;color:var(--muted);margin:9px 0 5px}
+table{width:100%;border-collapse:collapse;font-size:13px}th,td{text-align:left;padding:9px 6px;border-bottom:1px solid var(--line)}th{color:var(--muted)}
+.up{color:#c24b2e;font-weight:700}.down{color:#13834d;font-weight:700}
+.tabs{display:flex;gap:8px;overflow:auto;margin:14px 0}.tabs button{white-space:nowrap;background:#e7eef8;color:#26476f}.tabs button.active{background:var(--navy);color:white}
+.panel{display:none}.panel.active{display:block}.notice{background:#fff7e7;border:1px solid #ffe1a7;border-radius:12px;padding:11px;font-size:12px;color:#705018}
+footer{position:fixed;bottom:0;left:0;right:0;background:white;border-top:1px solid var(--line);display:flex;justify-content:center;gap:5px;padding:8px;z-index:4}
+footer button{background:white;color:#52637a;font-size:11px;padding:8px 10px;flex:1;max-width:150px}footer button.active{background:#eaf2ff;color:var(--blue)}
+.hidden{display:none!important}.house{height:120px;border-radius:14px;background:linear-gradient(160deg,#cfe5ff,#f8fbff);display:flex;align-items:center;justify-content:center;font-size:70px}
+@media(min-width:650px){.grid{grid-template-columns:repeat(3,1fr)}main{padding-top:22px}}
+</style>
+</head>
+<body>
+<header><div class="top"><div><div class="brand" id="brand">Build Mate</div><div class="tag">HOUSE DESIGN & CONSTRUCTION</div></div><span class="pill">Preview • Demo</span></div></header>
+<main>
+<section id="home" class="panel active">
+ <div class="hero"><div class="house">🏡</div><h1>အိမ်ဆောက်လုပ်ရေးကို တစ်နေရာတည်းမှာ စီမံပါ</h1><div class="muted">ဒီဇိုင်း၊ ပစ္စည်းတွက်ချက်မှု၊ ဈေးနှုန်းမှတ်တမ်းနဲ့ လုပ်ငန်းစဉ်များကို စမ်းသပ်ကြည့်နိုင်ပါတယ်။</div></div>
+ <div class="grid">
+  <button class="tile" onclick="show('design')"><span class="ico">🎨</span><b>အိမ်ဒီဇိုင်း / အရောင်</b><small>ဓာတ်ပုံနှင့် အရောင်စမ်းသပ်ရန်</small></button>
+  <button class="tile" onclick="show('materials')"><span class="ico">🧱</span><b>ပစ္စည်းဈေးနှုန်း</b><small>လအလိုက် ဈေးတက်ကျမှတ်တမ်း</small></button>
+  <button class="tile" onclick="show('cost')"><span class="ico">🧮</span><b>ကုန်ကျစရိတ်တွက်ရန်</b><small>ပမာဏ × တစ်ခုဈေး</small></button>
+  <button class="tile" onclick="show('project')"><span class="ico">🏗️</span><b>ဆောက်လုပ်ရေးမှတ်တမ်း</b><small>အဆင့်၊ လုပ်သား၊ အသုံးစရိတ်</small></button>
+  <button class="tile" onclick="show('plans')"><span class="ico">📐</span><b>2D / 3D အစီအစဉ်</b><small>အခန်းဖွဲ့စည်းပုံ စီစဉ်ရန်</small></button>
+  <button class="tile" onclick="show('premium')"><span class="ico">👑</span><b>Premium သက်တမ်း</b><small>၁၊ ၃၊ ၆ လ၊ ၁ နှစ်</small></button>
+ </div>
+ <div class="notice">စမ်းသပ်ဗားရှင်းသာဖြစ်သည်။ ငွေပေးချေမှု၊ အကောင့်၊ Cloud Backup နှင့် AI အလိုအလျောက်ဒီဇိုင်းတို့ မချိတ်ဆက်ရသေးပါ။</div>
+</section>
+
+<section id="materials" class="panel">
+ <h2>📊 ပစ္စည်းဈေးနှုန်းမှတ်တမ်း</h2><p class="muted">လအလိုက် ကိုယ်တိုင်ထည့်ထားသောဈေးနှုန်းကို သိမ်းပြီး ယခင်လနှင့် နှိုင်းယှဉ်ပါ။</p>
+ <div class="card"><div class="row"><div class="field"><label>ပစ္စည်းအမည်</label><input id="matName" value="ဘိလပ်မြေ"></div><div class="field"><label>လ / နှစ်</label><input id="matMonth" type="month" value="2026-11"></div></div>
+ <div class="row"><div class="field"><label>ဈေးနှုန်း (ကျပ်)</label><input id="matPrice" type="number" value="16000"></div><div class="field"><label>ယူနစ်</label><select id="matUnit"><option>တစ်အိတ်</option><option>တစ်တန်</option><option>တစ်လုံး</option><option>တစ်ကျင်း</option><option>တစ်စီး</option></select></div></div>
+ <label>မြို့ / ဆိုင် / မှတ်ချက်</label><input id="matNote" placeholder="ဥပမာ - မန္တလေး၊ ABC ဆိုင်"><br><br><button onclick="addPrice()">ဈေးနှုန်းမှတ်တမ်းသိမ်းမည်</button></div>
+ <div class="card"><h2>မှတ်တမ်းနှင့် ဈေးအပြောင်းအလဲ</h2><div id="priceTable"></div></div>
+</section>
+
+<section id="cost" class="panel"><h2>🧮 ပစ္စည်းကုန်ကျစရိတ်တွက်ချက်ရန်</h2><div class="card">
+ <label>ပစ္စည်းအမည်</label><input id="costName" value="ဘိလပ်မြေ">
+ <div class="row"><div class="field"><label>အရေအတွက်</label><input id="qty" type="number" value="100"></div><div class="field"><label>တစ်ခုဈေး (ကျပ်)</label><input id="unitPrice" type="number" value="16000"></div></div>
+ <p><button onclick="calcCost()">တွက်ချက်မည်</button></p><h2 id="costResult">စုစုပေါင်း — ကျပ် 1,600,000</h2><div class="muted">ခန့်မှန်းတွက်ချက်မှုသာဖြစ်ပြီး လက်တွေ့လုပ်ငန်းတွင် ပမာဏနှင့် ဈေးနှုန်းကို ပြန်စစ်ဆေးပါ။</div>
+ </div></section>
+
+<section id="project" class="panel"><h2>🏗️ ဆောက်လုပ်ရေးလုပ်ငန်းမှတ်တမ်း</h2><div class="card">
+ <label>စီမံကိန်းအမည်</label><input id="projName" placeholder="ဥပမာ - အိမ် ၂၀ ပေ × ၄၅ ပေ">
+ <label>လက်ရှိလုပ်ငန်းအဆင့်</label><select id="stage"><option>မြေရှင်းခြင်း</option><option>အုတ်မြစ်</option><option>တိုင် / Beam</option><option>အုတ်စီခြင်း</option><option>အမိုး</option><option>လျှပ်စစ် / ရေပိုက်</option><option>အချောသတ်</option></select>
+ <label>နေ့စဉ်အသုံးစရိတ် (ကျပ်)</label><input id="expense" type="number" placeholder="ဥပမာ - 250000">
+ <label>မှတ်ချက်</label><input id="projNote" placeholder="လုပ်သား၊ ပစ္စည်း၊ အလုပ်ပြီးစီးမှု">
+ <br><br><button onclick="saveProject()">မှတ်တမ်းသိမ်းမည်</button><div id="projectLog" class="muted" style="margin-top:12px"></div>
+ </div></section>
+
+<section id="design" class="panel"><h2>🎨 အိမ်အရောင်စမ်းသပ်ရန်</h2><div class="card"><label>အိမ်ဓာတ်ပုံရွေးပါ</label><input type="file" accept="image/*" id="photo" onchange="previewPhoto(event)"><div id="photoArea" class="house" style="margin-top:12px">🏠</div><label>စမ်းသပ်မည့်အရောင်</label><input type="color" id="paint" value="#dce7ef" oninput="tintPhoto()"><p class="muted">ဒီ Demo မှာ အရောင် overlay စမ်းသပ်မှုသာပါဝင်သည်။ နံရံ/တိုင်/အမိုးကို AI ဖြင့် သီးခြားခွဲခြားပြောင်းလဲခြင်း မပါသေးပါ။</p></div></section>
+
+<section id="plans" class="panel"><h2>📐 အိမ်ပုံစံအစီအစဉ်</h2><div class="card"><div class="notice">2D / 3D အပြည့်အစုံရေးဆွဲစနစ်ကို နောက်အဆင့်တွင် တည်ဆောက်ရန် စီစဉ်ထားသည်။</div><label>အိမ်အကျယ် (ပေ)</label><input type="number" placeholder="20"><label>အိမ်အလျား (ပေ)</label><input type="number" placeholder="45"><label>အိပ်ခန်းအရေအတွက်</label><select><option>2 ခန်း</option><option>1 ခန်း</option><option>3 ခန်း</option><option>4 ခန်း</option></select></div></section>
+
+<section id="premium" class="panel"><h2>👑 အသင်းဝင်သက်တမ်း</h2><div class="card"><p>Free — အခြေခံလုပ်ဆောင်ချက်များ</p><p>Premium — အဆင့်မြင့်လုပ်ဆောင်ချက်များ (နောင်တွင်)</p><div class="grid"><button class="tile" onclick="choosePlan('၁ လ')">၁ လ<br><b>ရွေးချယ်ရန်</b></button><button class="tile" onclick="choosePlan('၃ လ')">၃ လ<br><b>ရွေးချယ်ရန်</b></button><button class="tile" onclick="choosePlan('၆ လ')">၆ လ<br><b>ရွေးချယ်ရန်</b></button><button class="tile" onclick="choosePlan('၁ နှစ်')">၁ နှစ်<br><b>ရွေးချယ်ရန်</b></button></div><div id="planResult" class="notice">ငွေပေးချေမှုကို အမှန်တကယ် မကောက်ခံပါ။ Demo သာဖြစ်သည်။</div><p class="row"><button class="secondary" onclick="alert('Demo: KBZPay ချိတ်ဆက်မှု မပြုလုပ်ရသေးပါ')">KBZPay</button><button class="secondary" onclick="alert('Demo: WavePay ချိတ်ဆက်မှု မပြုလုပ်ရသေးပါ')">WavePay</button></p><div class="muted">Auto-renew ကို အသုံးပြုသူ၏ သီးခြားသဘောတူညီချက်နှင့် တရားဝင် payment provider ချိတ်ဆက်ပြီးမှ ဖွင့်နိုင်မည်။</div></div></section>
+</main>
+<footer>
+<button class="active" onclick="show('home',this)">🏠<br>ပင်မ</button><button onclick="show('materials',this)">🧱<br>ဈေးနှုန်း</button><button onclick="show('cost',this)">🧮<br>တွက်ချက်</button><button onclick="show('project',this)">🏗️<br>လုပ်ငန်း</button><button onclick="show('premium',this)">👑<br>Premium</button>
+</footer>
+<script>
+let prices=JSON.parse(localStorage.getItem('mbPrices')||'[]'), projects=JSON.parse(localStorage.getItem('mbProjects')||'[]'), photoURL='';
+function show(id,btn){document.querySelectorAll('.panel').forEach(x=>x.classList.remove('active'));document.getElementById(id).classList.add('active');document.querySelectorAll('footer button').forEach(x=>x.classList.remove('active'));if(btn)btn.classList.add('active');else{let map={home:0,materials:1,cost:2,project:3,premium:4};document.querySelectorAll('footer button')[map[id]??0].classList.add('active')}}
+function addPrice(){let p={name:matName.value.trim(),month:matMonth.value,price:+matPrice.value,unit:matUnit.value,note:matNote.value};if(!p.name||!p.month||!p.price)return alert('အချက်အလက်ပြည့်စုံစွာထည့်ပါ');prices.push(p);localStorage.setItem('mbPrices',JSON.stringify(prices));renderPrices()}
+function renderPrices(){if(!prices.length){priceTable.innerHTML='<p class="muted">မှတ်တမ်းမရှိသေးပါ။ အပေါ်မှ ဈေးနှုန်းထည့်ပါ။</p>';return}
+let sorted=[...prices].sort((a,b)=>a.name.localeCompare(b.name)||a.month.localeCompare(b.month));let rows=sorted.map((p,i)=>{let prev=sorted.slice(0,i).reverse().find(x=>x.name===p.name);let diff=prev?p.price-prev.price:null;return `<tr><td>${p.name}<br><small>${p.month} • ${p.unit}</small></td><td>${p.price.toLocaleString()}</td><td class="${diff>0?'up':diff<0?'down':''}">${diff===null?'—':(diff>0?'+':'')+diff.toLocaleString()}</td><td>${p.note||''}</td></tr>`}).join('');priceTable.innerHTML=`<table><thead><tr><th>ပစ္စည်း / လ</th><th>ဈေး (ကျပ်)</th><th>အပြောင်းအလဲ</th><th>မှတ်ချက်</th></tr></thead><tbody>${rows}</tbody></table><p><button class="secondary" onclick="clearPrices()">မှတ်တမ်းအားလုံးဖျက်ရန်</button></p>`}
+function clearPrices(){if(confirm('မှတ်တမ်းအားလုံးဖျက်မလား')){prices=[];localStorage.removeItem('mbPrices');renderPrices()}}
+function calcCost(){let t=(+qty.value)*(+unitPrice.value);costResult.textContent='စုစုပေါင်း — ကျပ် '+t.toLocaleString()}
+function saveProject(){let p={name:projName.value,stage:stage.value,expense:+expense.value,note:projNote.value,date:new Date().toLocaleDateString()};projects.unshift(p);localStorage.setItem('mbProjects',JSON.stringify(projects));renderProjects()}
+function renderProjects(){projectLog.innerHTML=projects.map(p=>`<div class="card"><b>${p.name||'စီမံကိန်း'}</b> • ${p.date}<br>${p.stage} • ကျပ် ${(p.expense||0).toLocaleString()}<br>${p.note||''}</div>`).join('')}
+function choosePlan(x){planResult.textContent=x+' Premium ကို ရွေးထားသည်။ ဤအစမ်းဗားရှင်းတွင် ငွေပေးချေမှုမလုပ်ဆောင်ပါ။'}
+function previewPhoto(e){let f=e.target.files[0];if(!f)return;photoURL=URL.createObjectURL(f);photoArea.innerHTML=`<img id="houseImg" src="${photoURL}" style="max-width:100%;max-height:240px;border-radius:12px">`}
+function tintPhoto(){let im=document.getElementById('houseImg');if(im)im.style.filter='sepia(.18) saturate(1.2)'}
+renderPrices();renderProjects();
+</script>
+<script>
+if ('serviceWorker' in navigator && (location.protocol === 'https:' || location.hostname === 'localhost')) {
+  window.addEventListener('load', () => navigator.serviceWorker.register('./service-worker.js').catch(console.error));
+}
+</script>
+</body></html>
